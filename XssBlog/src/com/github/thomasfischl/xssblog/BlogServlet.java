@@ -20,7 +20,7 @@ public class BlogServlet extends HttpServlet {
     }
 
     req.setAttribute("posts", service.getList());
-    req.getRequestDispatcher("/jsp/index.jsp").forward(req, resp);
+    req.getRequestDispatcher("./jsp/index.jsp").forward(req, resp);
   }
 
   @Override
@@ -29,7 +29,7 @@ public class BlogServlet extends HttpServlet {
     String text = req.getParameter("text");
     String username = String.valueOf(req.getSession().getAttribute(LoginServlet.USERNAME));
     service.addBlogPost(username, title, text);
-    resp.sendRedirect("/");
+    resp.sendRedirect("./");
   }
 
 }

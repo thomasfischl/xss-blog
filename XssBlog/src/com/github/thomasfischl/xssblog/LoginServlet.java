@@ -20,10 +20,10 @@ public class LoginServlet extends HttpServlet {
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     HttpSession session = req.getSession();
     if (session.getAttribute(USERNAME) != null) {
-      resp.sendRedirect("/");
+      resp.sendRedirect("./");
       return;
     }
-    req.getRequestDispatcher("/jsp/login.jsp").forward(req, resp);
+    req.getRequestDispatcher("./jsp/login.jsp").forward(req, resp);
   }
 
   @Override
@@ -39,9 +39,9 @@ public class LoginServlet extends HttpServlet {
       cookie.setMaxAge(60 * 60);
       resp.addCookie(cookie);
 
-      resp.sendRedirect("/");
+      resp.sendRedirect("./");
     } else {
-      req.getRequestDispatcher("/jsp/login.jsp").forward(req, resp);
+      req.getRequestDispatcher("./jsp/login.jsp").forward(req, resp);
     }
 
   }

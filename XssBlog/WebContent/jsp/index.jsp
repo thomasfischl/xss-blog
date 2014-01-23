@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core_1_1" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="true"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -23,16 +23,16 @@
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">Home</a></li>
-					<li class="active"><a href="/?action=delete">Delete Posts</a></li>
+					<li class="active"><a href="./?action=delete">Delete Posts</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
 					<c:if test="${sessionScope.username != null}">
 						<li><a href="#">Username: <c:out value="${sessionScope.username}" /></a></li>
-						<li><a href="/logout">Logout</a></li>
+						<li><a href="./logout">Logout</a></li>
 					</c:if>
 					<c:if test="${sessionScope.username == null}">
-						<li><a href="/login">Login</a></li>
+						<li><a href="./login">Login</a></li>
 					</c:if>
 
 				</ul>
@@ -57,7 +57,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4 col-md-offset-4">
-					<form class="form-signin" role="form" action="/" method="post">
+					<form class="form-signin" role="form" action="./" method="post">
 						<h2 class="form-signin-heading">New Post:</h2>
 						<input name="title" type="text" class="form-control" placeholder="Title">
 						<textarea name="text" class="form-control" rows="3"></textarea>
